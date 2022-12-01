@@ -1,0 +1,28 @@
+mutation checkoutPaymentCreate($checkoutToken: UUID!, $paymentInput: PaymentInput!) {
+	checkoutPaymentCreate(token: $checkoutToken, input: $paymentInput) {
+		checkout {
+			...CheckoutDetailsFragment
+		}
+		payment {
+			id
+			gateway
+			token
+			paymentMethodType
+			creditCard {
+				brand
+			}
+			total {
+				#...Price
+				currency
+				amount
+			}
+			checkout {
+				...CheckoutDetailsFragment
+			}
+		}
+		errors {
+			field
+			message
+		}
+	}
+}

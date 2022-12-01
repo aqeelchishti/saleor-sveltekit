@@ -1,0 +1,10 @@
+query HomepageBlocksQuery($slug: String!, $channel: String!) {
+	menu(channel: $channel, slug: $slug) {
+		id
+		name
+		slug
+		items {
+			...HomepageBlockFragment
+		}
+	}
+}

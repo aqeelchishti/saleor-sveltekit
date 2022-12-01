@@ -1,0 +1,10 @@
+mutation CheckoutLineUpdate($token: UUID, $variantId: ID!, $pQuantity: Int!) {
+	checkoutLinesUpdate(token: $token, lines: [{ quantity: $pQuantity, variantId: $variantId }]) {
+		checkout {
+			...CheckoutDetailsFragment
+		}
+		errors {
+			...ErrorDetailsFragment
+		}
+	}
+}
